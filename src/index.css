@@ -1,0 +1,90 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 217.2 91.2% 59.8%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 224.3 76.3% 48%;
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border selection:bg-primary/20 selection:text-primary;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    @apply font-sans;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased overflow-x-hidden font-['Inter',sans-serif];
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-secondary/30 backdrop-blur-lg border border-white/10 rounded-xl shadow-xl;
+  }
+  
+  .nav-link {
+    @apply relative text-muted-foreground hover:text-foreground transition-colors px-4 py-2 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary after:transition-all;
+  }
+
+  .nav-link-active {
+    @apply text-foreground after:w-full;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-10 relative inline-block;
+  }
+  
+  .section-title::after {
+    @apply content-[''] absolute bottom-0 left-0 w-1/2 h-1 bg-primary rounded-full;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .canvas-container {
+    @apply fixed top-0 left-0 w-full h-full -z-10;
+  }
+  
+  .section-padding {
+    @apply py-20 md:py-28;
+  }
+}
+
+#root {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
